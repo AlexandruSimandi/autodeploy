@@ -10,6 +10,7 @@ var config = JSON.parse(contents);
 
 app.post(config.SECRET_ENDPOINT, (req, res) => {
     exec('./autodeploy.sh > .log', puts);
+    res.status(200).send('ok');
     console.log('autodeploy script ran');
 });
 
