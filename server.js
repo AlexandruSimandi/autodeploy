@@ -8,7 +8,7 @@ var fs = require("fs");
 var contents = fs.readFileSync("config.json");
 var config = JSON.parse(contents);
 
-app.get(config.SECRET_ENDPOINT, (req, res) => {
+app.post(config.SECRET_ENDPOINT, (req, res) => {
     exec('./autodeploy.sh > .log', puts);
     console.log('autodeploy script ran');
 });
